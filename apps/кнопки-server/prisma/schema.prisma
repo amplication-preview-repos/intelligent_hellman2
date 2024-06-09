@@ -1,0 +1,17 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Button {
+  color     String?
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  isActive  Boolean?
+  size      String?
+  updatedAt DateTime @updatedAt
+}
